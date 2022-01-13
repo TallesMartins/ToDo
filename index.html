@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./estilos/style.css">
+    <link rel="stylesheet" href="estilos/side_nav.css">
+    <!--Fontes-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <!--Icones-->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <title>ToDo</title>
+</head>
+<body>
+    <header class="todo">
+        <h1>ToDo</h1>
+    </header>
+    <div class="container">
+        <div id="do" class="aba_todo fst">
+            <h2 class="title_card">Do</h2>
+            <div class="btns">
+                <button class="btn_txt"><i class='bx bxs-plus-circle'></i></button>
+                <input class="do_txt" type="text" placeholder="Digite aqui" value="">
+                <button id="btn_add1" class="btn_add" onclick="stylediv()"><i class='bx bx-check' ></i></button>
+            </div>
+        </div>
+        <div id="doing" class="aba_todo snd">
+            <h2 class="title_card">Doing</h2>
+            <div class="btns">
+                <button class="btn_txt" onclick="show_hide()"><i class='bx bxs-plus-circle'></i></button>
+                <input id="do_txt2" class="do_txt" type="text" placeholder="Digite aqui" value="">
+                <button id="btn_add2"class="btn_add" onclick="stylediv2()"><i class='bx bx-check'></i></button>
+            </div>
+        </div>
+        <div id="completed" class="aba_todo trd">
+            <h2 class="title_card">Completed</h2>
+            <div class="btns">
+                <button class="btn_txt"><i class='bx bxs-plus-circle'></i></button>
+                <input id="do_txt3"class="do_txt" type="text" placeholder="Digite aqui" value="">
+                <button id="btn_add3"class="btn_add" onclick="stylediv3()"><i class='bx bx-check' ></i></button>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar">
+        <div class="logo_content">
+            <div class="logo">
+                <i class='bx bx-copyright'></i>
+                <div class="logo_name">Programas Bugados</div>
+            </div>
+            <i id="btn"class='bx bx-menu'></i>
+        </div>
+        <ul class="nav_list">
+            <li>
+                <a href="#">
+                    <i class='bx bx-home' ></i>
+                    <span class="links_name">Home</span>
+                </a>
+                <span class="tooltip">Home</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-book-open'></i>
+                    <span class="links_name">Projetos</span>
+                </a>
+                <span class="tooltip">Projetos</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-joystick' ></i>
+                    <span class="links_name">Jogos</span>
+                </a>
+                <span class="tooltip">Jogos</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-paperclip' ></i>
+                    <span class="links_name">Curriculo</span>
+                </a>
+                <span class="tooltip">Curriculo</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-info-circle'></i>
+                    <span class="links_name">Sobre</span>
+                </a>
+                <span class="tooltip">Sobre</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-cog' ></i>
+                    <span class="links_name">Opções</span>
+                </a>
+                <span class="tooltip">Opções</span>
+            </li>
+        </ul>
+    </div>
+    <script src="scripts/main.js"></script>
+    <script src="https://unpkg.com/boxicons@2.1.1/dist/boxicons.js"></script>
+    <script src="scripts/side_nav.js"></script>
+</body>
+</html>
