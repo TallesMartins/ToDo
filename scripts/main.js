@@ -33,21 +33,17 @@ function stylediv(){
         fst.style.background = 'var(--branco)'
     }
 
-    if(fst.style.textDecoration == 'line-through'){
-        line()
-    }else{
-        line() 
-    }
+    
 
-    fst.ondblclick = function(){
-        fst.style.textDecoration = 'none'
-    }
-
-    function line(){
-        fst.onclick = function(){
-        fst.style.textDecoration = 'line-through'
+    fst.onclick = function(){
+        if(fst.style.textDecoration == 'line-through'){
+            fst.style.textDecoration = 'none'
+        }else{
+            fst.style.textDecoration = 'line-through'
         }
-    }   
+    }
+
+    
 
     first.appendChild(fst)
 
@@ -90,21 +86,13 @@ function stylediv2(){
         snd.style.background = 'var(--branco)'
     }
 
-    if(snd.style.textDecoration == 'line-through'){
-        line()
-    }else{
-        line() 
-    }
-
-    snd.ondblclick = function(){
-        snd.style.textDecoration = 'none'
-    }
-
-    function line(){
-        snd.onclick = function(){
+    snd.onclick = function(){
+        if(snd.style.textDecoration == 'line-through'){
+            snd.style.textDecoration = 'none'
+        }else{
             snd.style.textDecoration = 'line-through'
         }
-    }   
+    }  
     second.appendChild(snd)
     let txt2 = document.querySelector('#do_txt2').value
     snd.innerHTML = `${txt2}` 
@@ -145,21 +133,14 @@ function stylediv3(){
         trd.style.background = 'var(--branco)'
     }
 
-    if(trd.style.textDecoration == 'line-through'){
-        line()
-    }else{
-        line() 
-    }
-
-    trd.ondblclick = function(){
-        trd.style.textDecoration = 'none'
-    }
-
-    function line(){
-        trd.onclick = function(){
+    trd.onclick = function(){
+        if(trd.style.textDecoration == 'line-through'){
+            trd.style.textDecoration = 'none'
+        }else{
             trd.style.textDecoration = 'line-through'
         }
-    }   
+    }
+
     third.appendChild(trd)
     let txt3 = document.querySelector('#do_txt3').value
     trd.innerHTML = `${txt3}` 
