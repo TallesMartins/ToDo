@@ -42,12 +42,12 @@ header{
     border-radius: 15px;
 }
 .aba_todo .btns{
+    max-width: 100%;
     position: absolute;
     top: 35px;
     width: 290px;
     height: 50px;
     border-style: solid;
-    z-index: 99;
     border-top:none;
     border-left: none;
     border-right: none;
@@ -90,6 +90,7 @@ header{
 }
 
 .aba_todo .btns .do_txt{
+    max-width: 100%;
     color: var(--branco);
     margin-left: 5px;
     border: none;

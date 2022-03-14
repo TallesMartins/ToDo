@@ -1,150 +1,72 @@
-
+let button_txt = document.querySelector('.btn_txt')
+var btn = document.querySelector('.do_txt')
+//1° aba
+let input_txt = document.querySelector('#input_txt')
 let first = document.querySelector('.fst')
 let button_add = document.querySelector('#btn_add1')
-button_add.onclick = function(){
-    
-    stylediv(this)
-} 
-function stylediv(){
-    let fst =  document.createElement("div")
-    fst.setAttribute('class','card')
-    fst.style.background = 'var(--branco)';
-    fst.style.width = '280px'
-    fst.style.color = '#000'
-    fst.style.borderRadius = '6px'
-    fst.style.maxHeight = '100%'
-    fst.style.display ='flex'
-    fst.style.flexDirection = 'column'
-    fst.style.alignItems = 'center'
-    fst.style.textAlign = 'center'
-    fst.style.position = 'relative'
-    fst.style.margin = '5px'
-    fst.style.pointerEvents = 'auto'
-    fst.style.transition = 'all 0.5s ease'
-    fst.style.textDecoration = 'none'
-
-    fst.onmouseover = function (){
-        fst.style.color = 'var(--branco)'
-        fst.style.background = 'var(--azule)'
-    }
-
-    fst.onmouseout = function(){
-        fst.style.color = 'var(--preto)'
-        fst.style.background = 'var(--branco)'
-    }
-
-    
-
-    fst.onclick = function(){
-        if(fst.style.textDecoration == 'line-through'){
-            fst.style.textDecoration = 'none'
-        }else{
-            fst.style.textDecoration = 'line-through'
-        }
-    }
-
-    
-
-    first.appendChild(fst)
-
-    let txt = document.querySelector('.do_txt').value
-    fst.innerHTML = `${txt}` 
-    
-}
-
+//2° aba
+let input_txt2 = document.querySelector('#input_txt2')
 let second = document.querySelector('.snd')
 let btn_add2 = document.getElementById('btn_add2')
-btn_add2.onclick = function(){   
-    stylediv2()
-} 
-
-function stylediv2(){
-    let snd =  document.createElement("div")
-    snd.setAttribute('class','card')
-    snd.style.background = 'var(--branco)';
-    snd.style.width = '280px'
-    snd.style.color = '#000'
-    snd.style.borderRadius = '6px'
-    snd.style.maxHeight = '100%'
-    snd.style.display ='flex'
-    snd.style.flexDirection = 'column'
-    snd.style.alignItems = 'center'
-    snd.style.textAlign = 'center'
-    snd.style.position = 'relative'
-    snd.style.margin = '5px'
-    snd.style.pointerEvents = 'auto'
-    snd.style.transition = 'all 0.5s ease'
-    snd.style.textDecoration = 'none'
-
-    snd.onmouseover = function (){
-        snd.style.color = 'var(--branco)'
-        snd.style.background = 'var(--azule)'
-    }
-
-    snd.onmouseout = function(){
-        snd.style.color = 'var(--preto)'
-        snd.style.background = 'var(--branco)'
-    }
-
-    snd.onclick = function(){
-        if(snd.style.textDecoration == 'line-through'){
-            snd.style.textDecoration = 'none'
-        }else{
-            snd.style.textDecoration = 'line-through'
-        }
-    }  
-    second.appendChild(snd)
-    let txt2 = document.querySelector('#do_txt2').value
-    snd.innerHTML = `${txt2}` 
-    console.log('text')
-}
-
+//3° aba
+let input_txt3 = document.querySelector('#input_txt3')
 let third = document.querySelector('.trd')
 let btn_add3 = document.getElementById('btn_add3')
-btn_add3.onclick = function(){   
-    stylediv3()
+
+button_add.onclick = function(){
+    stylediv3(first, input_txt.value)
 } 
 
-function stylediv3(){
-    let trd =  document.createElement("div")
-    trd.setAttribute('class','card')
-    trd.style.background = 'var(--branco)';
-    trd.style.width = '280px'
-    trd.style.color = '#000'
-    trd.style.borderRadius = '6px'
-    trd.style.maxHeight = '100%'
-    trd.style.display ='flex'
-    trd.style.flexDirection = 'column'
-    trd.style.alignItems = 'center'
-    trd.style.textAlign = 'center'
-    trd.style.position = 'relative'
-    trd.style.margin = '5px'
-    trd.style.pointerEvents = 'auto'
-    trd.style.transition = 'all 0.5s ease'
-    trd.style.textDecoration = 'none'
+btn_add2.onclick = function(){   
+    stylediv3(second, input_txt2.value)
+} 
 
-    trd.onmouseover = function (){
-        trd.style.color = 'var(--branco)'
-        trd.style.background = 'var(--azule)'
+btn_add3.onclick = function(){   
+    stylediv3(third, input_txt3.value)
+} 
+
+function stylediv3(aba, input_aba){
+    this.input_aba = input_aba
+    this.aba = aba
+    
+    let aba_todo =  document.createElement("div")
+    aba_todo.setAttribute('class','card')
+    aba_todo.style.background = 'var(--branco)';
+    aba_todo.style.maxWidth = '100%'
+    aba_todo.style.width = '280px'
+    aba_todo.style.color = '#000'
+    aba_todo.style.borderRadius = '6px'
+    aba_todo.style.maxHeight = '100%'
+    aba_todo.style.display ='flex'
+    aba_todo.style.flexDirection = 'column'
+    aba_todo.style.alignItems = 'center'
+    aba_todo.style.textAlign = 'center'
+    aba_todo.style.position = 'relative'
+    aba_todo.style.margin = '5px'
+    aba_todo.style.pointerEvents = 'auto'
+    aba_todo.style.transition = 'all 0.5s ease'
+    aba_todo.style.textDecoration = 'none'
+
+    aba_todo.onmouseover = function (){
+        aba_todo.style.color = 'var(--branco)'
+        aba_todo.style.background = 'var(--azule)'
     }
 
-    trd.onmouseout = function(){
-        trd.style.color = 'var(--preto)'
-        trd.style.background = 'var(--branco)'
+    aba_todo.onmouseout = function(){
+        aba_todo.style.color = 'var(--preto)'
+        aba_todo.style.background = 'var(--branco)'
     }
 
-    trd.onclick = function(){
-        if(trd.style.textDecoration == 'line-through'){
-            trd.style.textDecoration = 'none'
+    aba_todo.onclick = function(){
+        if(aba_todo.style.textDecoration == 'line-through'){
+            aba_todo.style.textDecoration = 'none'
         }else{
-            trd.style.textDecoration = 'line-through'
+            aba_todo.style.textDecoration = 'line-through'
         }
     }
 
-    third.appendChild(trd)
-    let txt3 = document.querySelector('#do_txt3').value
-    trd.innerHTML = `${txt3}` 
-    console.log('text')
+    aba.appendChild(aba_todo)
+    aba_todo.innerHTML = `${input_aba}` 
 }
 
 
