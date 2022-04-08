@@ -26,47 +26,50 @@ btn_add3.onclick = function(){
 } 
 
 function stylediv3(aba, input_aba){
-    this.input_aba = input_aba
-    this.aba = aba
-    
-    let aba_todo =  document.createElement("div")
-    aba_todo.setAttribute('class','card')
-    aba_todo.style.background = 'var(--branco)';
-    aba_todo.style.maxWidth = '100%'
-    aba_todo.style.width = '280px'
-    aba_todo.style.color = '#000'
-    aba_todo.style.borderRadius = '6px'
-    aba_todo.style.maxHeight = '100%'
-    aba_todo.style.display ='flex'
-    aba_todo.style.flexDirection = 'column'
-    aba_todo.style.alignItems = 'center'
-    aba_todo.style.textAlign = 'center'
-    aba_todo.style.position = 'relative'
-    aba_todo.style.margin = '5px'
-    aba_todo.style.pointerEvents = 'auto'
-    aba_todo.style.transition = 'all 0.5s ease'
-    aba_todo.style.textDecoration = 'none'
+    if(input_aba != "" && input_aba != null){
+        let aba_todo =  document.createElement("div")
+        aba_todo.setAttribute('class','card')
+        aba_todo.style.background = 'var(--branco)';
+        aba_todo.style.maxWidth = '100%'
+        aba_todo.style.width = '280px'
+        aba_todo.style.color = '#000'
+        aba_todo.style.borderRadius = '6px'
+        aba_todo.style.maxHeight = '100%'
+        aba_todo.style.display ='flex'
+        aba_todo.style.flexDirection = 'column'
+        aba_todo.style.alignItems = 'center'
+        aba_todo.style.textAlign = 'center'
+        aba_todo.style.position = 'relative'
+        aba_todo.style.margin = '5px'
+        aba_todo.style.pointerEvents = 'auto'
+        aba_todo.style.transition = 'all 0.5s ease'
+        aba_todo.style.textDecoration = 'none'
 
-    aba_todo.onmouseover = function (){
-        aba_todo.style.color = 'var(--branco)'
-        aba_todo.style.background = 'var(--azule)'
-    }
-
-    aba_todo.onmouseout = function(){
-        aba_todo.style.color = 'var(--preto)'
-        aba_todo.style.background = 'var(--branco)'
-    }
-
-    aba_todo.onclick = function(){
-        if(aba_todo.style.textDecoration == 'line-through'){
-            aba_todo.style.textDecoration = 'none'
-        }else{
-            aba_todo.style.textDecoration = 'line-through'
+        aba_todo.onmouseover = function (){
+            aba_todo.style.color = 'var(--branco)'
+            aba_todo.style.background = 'var(--azule)'
         }
-    }
 
-    aba.appendChild(aba_todo)
-    aba_todo.innerHTML = `${input_aba}` 
+        aba_todo.onmouseout = function(){
+            aba_todo.style.color = 'var(--preto)'
+            aba_todo.style.background = 'var(--branco)'
+        }
+
+        aba_todo.onclick = function(){
+            if(aba_todo.style.textDecoration == 'line-through'){
+                aba_todo.style.textDecoration = 'none'
+            }else{
+            aba_todo.style.textDecoration = 'line-through'
+            }
+        }
+
+        aba.appendChild(aba_todo)
+        aba_todo.innerHTML = `${input_aba}` 
+
+    }else{
+        alert("[ERRO] Insira o texto antes de confirmar a inserção")
+    } 
+    
 }
 
 
