@@ -19,6 +19,7 @@ body{
 header{
     text-align: center;
 }
+
 .container{
     display: flex;
     position: relative;
@@ -32,7 +33,6 @@ header{
     text-align: center;
     align-items: center;
     flex-direction: column;
-    justify-content: center;
     color: var(--branco);
     padding: 5px;
     margin: 5px;
@@ -41,7 +41,23 @@ header{
     height: 500px;
     border-radius: 15px;
 }
-.aba_todo .btns{
+.aba_todo .headAba{
+    display: flex;
+    position: relative;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--branco);
+    padding: 5px;
+    margin: 5px;
+    background-color:var(--preto);
+    width: 300px;
+    height: 100px;
+    border-radius: 15px;
+}
+
+.aba_todo .headAba .Buttons{
     max-width: 100%;
     position: absolute;
     top: 35px;
@@ -52,7 +68,7 @@ header{
     border-left: none;
     border-right: none;
 }
-.aba_todo .btns .btn_add{
+.aba_todo .headAba .Buttons .buttonAdd{
     width: 40px;
     padding: 5px;
     font-size: 24px;
@@ -66,30 +82,13 @@ header{
     border-radius: 6px;
     transition: all 0.5s ease;
 }
-.aba_todo .btns .btn_txt{
-    width: 40px;
-    padding: 5px;
-    font-size: 24px;
-    color: var(--branco);
-    position: relative;
-    text-align: center;
-    top: 5px;
-    left: 5px;
-    border: none;
-    background-color:var(--preto);  
-    border-radius: 6px;
-    transition: all 0.5s ease;
-}
-.aba_todo .btns .btn_add:hover{
-    color: var(--azule);
-    background-color: var(--branco);
-}
-.aba_todo .btns .btn_txt:hover{
+
+.aba_todo .headAba .Buttons .buttonAdd:hover{
     color: var(--azule);
     background-color: var(--branco);
 }
 
-.aba_todo .btns .do_txt{
+.aba_todo .headAba .Buttons .card{
     max-width: 100%;
     color: var(--branco);
     margin-left: 5px;
@@ -100,11 +99,25 @@ header{
     background-color: var(--azule);
     transition: all 0.5s ease;
 }
-.aba_todo .btns .do_txt:hover{
+.aba_todo .headAba .Buttons .card:hover{
     color: var(--azule);
     background-color: var(--branco);
 }
-.aba_todo .title_card{
+.aba_todo .headAba .title_card{
     position:absolute;
     top: 5px;
+}
+@media screen and (max-width:700px){
+    #doing{
+        display: none;
+    }
+    #completed{
+        display: none;
+    }
+}
+@media screen and (max-width:1000px){
+    #doing{
+        display: none;
+    }
+
 }
