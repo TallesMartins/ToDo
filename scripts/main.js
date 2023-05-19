@@ -105,6 +105,7 @@ function AdicionarAbas(aba, input_aba, list){
         }
 
         button.onclick = function(){
+            input_aba.value="";
             aba_todo.remove()
             list.pop(aba_todo)
         }
