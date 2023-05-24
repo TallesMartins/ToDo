@@ -20,14 +20,17 @@ var tasksCompleted = []
 
 button_add.onclick = function(){
     AdicionarAbas(first, input_txt.value,tasksToDo)
+    input_txt.value = ""
 } 
 
 btn_add2.onclick = function(){   
     AdicionarAbas(second, input_txt2.value,taskOngoing)
+    input_txt2.value = ""
 } 
 
 btn_add3.onclick = function(){   
     AdicionarAbas(third, input_txt3.value,tasksCompleted)
+    input_txt3.value = ""
 } 
 function AdicionarAbas(aba, input_aba, list){
     if(input_aba != "" && list.length != 9){
