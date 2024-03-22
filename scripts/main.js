@@ -1,155 +1,94 @@
-let button_txt = document.querySelector('.btn_txt')
-var btn = document.querySelector('.do_txt')
-var cards = document.querySelector('.aba_todo')
+const coluna = document.querySelectorAll('.abaContent')
 //1° aba
-let input_txt = document.querySelector('#inputCardToDo')
-let first = document.querySelector('.fst')
-let button_add = document.querySelector('#btnAddToDo')
+const input_txt = document.querySelector('#inputCardToDo')
+const first = document.querySelector('#fst')
+const button_add = document.querySelector('#btnAddToDo')
 //2° aba
-let input_txt2 = document.querySelector('#inputCardOngoing')
-let second = document.querySelector('.snd')
-let btn_add2 = document.getElementById('btnAddOngoing')
+const input_txt2 = document.querySelector('#inputCardOngoing')
+const second = document.querySelector('#snd')
+const btn_add2 = document.getElementById('btnAddOngoing')
 //3° aba
-let input_txt3 = document.querySelector('#inputCardDone')
-let third = document.querySelector('.trd')
-let btn_add3 = document.getElementById('btnAddDone')
+const input_txt3 = document.querySelector('#inputCardDone')
+const third = document.querySelector('#trd')
+const btn_add3 = document.getElementById('btnAddDone')
 
-var tasksToDo = []
-var taskOngoing = []
-var tasksCompleted = []
+const titleOne = document.getElementById('titleOne')
+const titleTwo = document.getElementById('titleTwo')
+const titleThree = document.getElementById('titleThree')
 
+var listas = {
+    tasksToDo: [],
+    taskOngoing: [],
+    tasksCompleted: []
+}
+
+function contador(lista,title, texto){
+    title.innerText = `${texto}:${lista.length}`
+}
+/*--------Adicionar Tarefas---------*/
 button_add.onclick = function(){
-    AdicionarAbas(first, input_txt.value,tasksToDo)
+    AdicionarAbas(first, input_txt.value,listas.tasksToDo)
+    contador(listas.tasksToDo,titleOne, "Não iniciado")
     input_txt.value = ""
 } 
 
 btn_add2.onclick = function(){   
-    AdicionarAbas(second, input_txt2.value,taskOngoing)
+    AdicionarAbas(second, input_txt2.value,listas.taskOngoing)
+    contador(listas.taskOngoing, titleTwo, "Em Progresso")
     input_txt2.value = ""
 } 
 
 btn_add3.onclick = function(){   
-    AdicionarAbas(third, input_txt3.value,tasksCompleted)
+    AdicionarAbas(third, input_txt3.value,listas.tasksCompleted)
+    contador(listas.tasksCompleted, titleThree, "Concluído")
     input_txt3.value = ""
 } 
+
 function AdicionarAbas(aba, input_aba, list){
     if(input_aba != "" && list.length != 9){
+        criarTarefa()
+    }else if(list.length == 9){
+        alert('Somente 9 cards são suportados, delete um card para adicionar mais')
+    } 
+    function criarTarefa(){
         let aba_todo =  document.createElement("div")
         let button = document.createElement("button")
-        let icon = document.createElement('i')
         let edit = document.createElement("button")
-        let buttons = document.createElement("div")
+        let buttonsContainer = document.createElement("div")
+
 
         aba_todo.setAttribute('class','tarefa')
-        button.setAttribute('class','buttonDelete')
-        icon.setAttribute('class','bx')
-        icon.setAttribute('class', 'bxs-plus-circle')
+        aba_todo.setAttribute('draggable','true')
+
+        button.setAttribute('class','edit')
         edit.setAttribute('class', 'edit')
-        buttons.setAttribute('class','buttons')
-        
-        aba_todo.style.background = 'var(--branco)'
-        aba_todo.style.maxWidth = '100%'
-        aba_todo.style.width = '280px'
-        aba_todo.style.color = '#000'
-        aba_todo.style.borderRadius = '6px'
-        aba_todo.style.maxHeight = '100%'
-        aba_todo.style.display = 'flex'
-        aba_todo.style.flexDirection = 'row'
-        aba_todo.style.alignItems = 'center'
-        aba_todo.style.justifyContent = 'space-between'
-        aba_todo.style.padding = '6px'
-        aba_todo.style.textAlign = 'center'
-        aba_todo.style.position = 'relative'
-        aba_todo.style.margin = '5px'
-        aba_todo.style.pointerEvents = 'auto'
-        aba_todo.style.transition = 'all 0.5s ease'
-        aba_todo.style.textDecoration = 'none'
-
-        buttons.style.maxWidth = '100%'
-        buttons.style.padding = '2px'
-        buttons.style.position ='relative'
-        buttons.style.border = 'none'
-        buttons.style.justifyContent = 'space-between'
-        buttons.style.flexDirection = 'row'
-
-        edit.style.maxWidth = '100%'
-        edit.style.marginRight = '5px'
-        edit.style.padding = '5px'
-        edit.style.fontSize = '8px'
-        edit.style.color = 'var(--branco)'
-        edit.style.position = 'relative'
-        edit.style.textAlign = 'center'
-        edit.style.right = '5px'   
-        edit.style.border = 'none'
-        edit.style.backgroundColor = 'var(--back)'  
-        edit.style.borderRadius = '6px'
-        edit.style.transition = 'all 0.5s ease'
-
-        button.style.maxWidth = '100%'
-        button.style.padding = '5px'
-        button.style.fontSize = '8px'
-        button.style.color = 'var(--branco)'
-        button.style.position = 'relative'
-        button.style.textAlign = 'center'
-        button.style.right = '5px'   
-        button.style.border = 'none'
-        button.style.backgroundColor = 'var(--back)'  
-        button.style.borderRadius = '6px'
-        button.style.transition = 'all 0.5s ease'
-
-        button.onmouseover = function (){
-            button.style.color = 'var(--back)'
-            button.style.background = 'var(--branco)'
-        }
-
-        button.onmouseout = function(){
-            button.style.background = 'var(--back)'
-            button.style.color = 'var(--branco)'
-        }
+        buttonsContainer.setAttribute('class','buttonsContainer')
 
         button.onclick = function(){
-            input_aba.value="";
             aba_todo.remove()
             list.pop(aba_todo)
-        }
-
-        edit.onmouseover = function (){
-            edit.style.color = 'var(--back)'
-            edit.style.background = 'var(--branco)'
-        }
-
-        edit.onmouseout = function(){
-            edit.style.background = 'var(--back)'
-            edit.style.color = 'var(--branco)'
         }
 
         edit.onclick = function(){
             aba_todo.innerHTML = ''
             let inputTemp = document.createElement('input')
+            inputTemp.setAttribute('class', 'inputTemp')
             inputTemp.placeholder = 'Digite aqui'
             aba_todo.appendChild(inputTemp)
+
             let buttonTemp = document.createElement('button')
+            buttonTemp.setAttribute('class', 'buttonTemp')
             buttonTemp.innerText = 'Ok'
-            buttonTemp.style.maxWidth = 'fit-content'
-            buttonTemp.style.padding = '5px'
-            buttonTemp.style.fontSize = '12px'
-            buttonTemp.style.color = 'var(--branco)'
-            buttonTemp.style.position = 'relative'
-            buttonTemp.style.textAlign = 'center'
-            buttonTemp.style.right = '5px'   
-            buttonTemp.style.border = 'none'
-            buttonTemp.style.backgroundColor = '#165'  
-            buttonTemp.style.borderRadius = '6px'
-            
+
             aba_todo.appendChild(buttonTemp)
             
             
             buttonTemp.onclick = function (){
                 if(inputTemp.value != '' && inputTemp.value != null){
                     aba_todo.innerHTML = `${inputTemp.value}`
-                    buttons.appendChild(edit)
-                    buttons.appendChild(button)  
-                    aba_todo.appendChild(buttons)
+                    buttonsContainer.appendChild(edit)
+                    buttonsContainer.appendChild(button)  
+                    aba_todo.appendChild(buttonsContainer)
                 }else{ 
                     alert('[ERRO]Campo de edição vazio')
                 }
@@ -168,13 +107,6 @@ function AdicionarAbas(aba, input_aba, list){
         }
         
 
-        aba_todo.onclick = function(){
-            if(aba_todo.style.textDecoration == 'line-through'){
-                aba_todo.style.textDecoration = 'none'
-            }else{
-            aba_todo.style.textDecoration = 'line-through'
-            }
-        }
         
         
         list.push(aba_todo)
@@ -182,15 +114,42 @@ function AdicionarAbas(aba, input_aba, list){
         aba_todo.innerHTML = `${input_aba}` 
         button.innerHTML = 'X'
         edit.innerHTML = 'E'
-        buttons.appendChild(edit)
-        buttons.appendChild(button)
-        aba_todo.appendChild(buttons)
+        buttonsContainer.appendChild(edit)
+        buttonsContainer.appendChild(button)
+        aba_todo.appendChild(buttonsContainer)
     
-    }else if(list.length == 9){
-        alert('Somente 9 cards são suportados, delete um card para adicionar mais')
-        throw new Error("Verifique as informações adicionadas")
-    } 
-    
+    }
 }
 
+/*Drag and Drop*/ 
+
+document.addEventListener('dragstart', (e)=>{
+    e.target.classList.add('dragging');
+})
+document.addEventListener('dragend', (e)=>{
+    e.target.classList.remove('dragging');
+})
+coluna.forEach((item)=>{
+    item.addEventListener('dragover',(e)=>{
+        const dragging = document.querySelector('.dragging');
+        const applyAfter = getNewPosition(item, e.clientY)
     
+        if(applyAfter){
+            applyAfter.insertAdjacentElement("afterend", dragging)
+        } else {
+            item.prepend(dragging)
+        }
+    });
+});
+
+function getNewPosition(coluna, posY){
+    const cards = coluna.querySelectorAll(".item:not(.dragging)")
+    let result;
+
+    for (let refer_card of cards){
+        const box = refer_card.getBoundingClientRect();
+        const boxCenterY = box.y + box.height / 2;
+        if(posY >= boxCenterY) result = refer_card 
+    }
+    return result;
+}
