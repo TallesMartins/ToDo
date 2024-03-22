@@ -1,10 +1,9 @@
 # ToDo
-Você pode chegar a página aqui: https://tallesmartins.github.io/ToDo/
+Você pode chegar a página aqui: to-do-phi-three.vercel.app
 ## Projeto de página ToDo
 
 ### Falta adicionar:
 
-* Drag and Drop nos cards
 * Menu de opções
 
 ## Resolvido problema com funções.
